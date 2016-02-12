@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 
+VERSION="0.0.1"
+
+show_version() {
+  say "git-stp v$VERSION"
+}
+
 say() {
   printf '%s\n' "$1"
 }
@@ -35,12 +41,14 @@ commands:
 
 options:
   -h, --help                      Display this help information
+  -v, --version                   Display this version of git-stp
 
 EOF
 }
 
 case $1 in
 	-h|--help) show_help; exit 0 ;;
+	-v|--version) show_version; exit 0 ;;
 esac
 
 stp "$@"
