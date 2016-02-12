@@ -28,7 +28,7 @@ stp() {
     git stash pop
   else
     fail_say "My... my code... its... BAD!"
-    say "You might want to look at what went wrong and remember to pop the stash!"
+    fail_say "You might want to look at what went wrong and remember to pop the stash!"
   fi
 }
 
