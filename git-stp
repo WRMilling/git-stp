@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
 VERSION="0.0.1"
+GIT_ROOT_DIR="`git rev-parse --show-toplevel`"
+TEST_CMD="rake"
 
 show_version() {
   say "git-stp v$VERSION"
@@ -21,7 +23,7 @@ stp() {
 
   say "Testing your code, lets hope it goes right."
 
-  if rake ; then
+  if eval "$TEST_CMD" ; then
     say "Looks like everything went OK... I think. Returning your code."
     git stash pop
   else
@@ -50,5 +52,10 @@ case $1 in
 	-h|--help) show_help; exit 0 ;;
 	-v|--version) show_version; exit 0 ;;
 esac
+
+if [ -e "$GIT_ROOT_DIR/.test.cmd" ]
+then
+  TEST_CMD="`cat $GIT_ROOT_DIR/.test.cmd`"
+fi
 
 stp "$@"
