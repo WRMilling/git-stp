@@ -4,15 +4,15 @@ git stash, test, pop.
 
 ### Installation
 
-Run `sudo make install` to install to the default directory
+Run `sudo make install` which will install the git-stp file to the /usr/local/bin directory.
 
 ### Configuration
 
-You can create a `.test.cmd` file at the root of your git project tree which specifies the specific testing command, otherwise `rake` is assumed.
+You can create a `.test.cmd` file at the root of your git project tree which specifies the testing command for your project, otherwise `rake` is assumed.
 
 ### Basic Usage
 
-Run `git stp` to stash all uncommitted changes, test your code, and pop those changes
+Run `git stp` to stash all uncommitted changes, test your code, and pop those changes.
 
 ### Help Documentation
 ```
