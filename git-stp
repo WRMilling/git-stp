@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+stp() {
+  printf '%s\n' "Stashing all your stuff, hang tight!"
+  git add -A
+  git stash
+   
+  printf '%s\n' "Testing your code, lets hope it goes right."
+  rake
+  
+  printf '%s\n' "Looks like everything went OK... I think. Returning your code."
+  git stash pop
+}
+
+stp "$@"
