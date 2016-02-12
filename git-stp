@@ -24,4 +24,23 @@ stp() {
   fi
 }
 
+show_help() {
+  cat <<- EOF
+
+usage:
+  git stp [options] [COMMAND] [args]
+
+commands:
+  git stp                         Stash all changes, test, and pop them back.
+
+options:
+  -h, --help                      Display this help information
+
+EOF
+}
+
+case $1 in
+	-h|--help) show_help; exit 0 ;;
+esac
+
 stp "$@"
