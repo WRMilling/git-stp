@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 say() {
-  printf '\n%s\n\n' "$1"
+  printf '%s\n' "$1"
 }
 
 stp() {
@@ -10,10 +10,14 @@ stp() {
   git stash
 
   say "Testing your code, lets hope it goes right."
-  rake
-
-  say "Looks like everything went OK... I think. Returning your code."
-  git stash pop
+  
+  if rake ; then
+    say "Looks like everything went OK... I think. Returning your code."
+    git stash pop
+  else
+    say "My... my code... its... BAD!"
+    say "You might want to look at what went wrong and remember to pop the stash!"
+  fi
 }
 
 stp "$@"
