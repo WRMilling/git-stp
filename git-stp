@@ -4,18 +4,22 @@ say() {
   printf '%s\n' "$1"
 }
 
+fail_say() {
+  printf '\033[31;1m%s\033[0m\n' "$1"
+}
+
 stp() {
   say "Stashing all your stuff, hang tight!"
   git add -A
   git stash
 
   say "Testing your code, lets hope it goes right."
-  
+
   if rake ; then
     say "Looks like everything went OK... I think. Returning your code."
     git stash pop
   else
-    say "My... my code... its... BAD!"
+    fail_say "My... my code... its... BAD!"
     say "You might want to look at what went wrong and remember to pop the stash!"
   fi
 }
