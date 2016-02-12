@@ -1,14 +1,18 @@
 #!/usr/bin/env sh
 
+say() {
+  printf '\n%s\n\n' "$1"
+}
+
 stp() {
-  printf '%s\n' "Stashing all your stuff, hang tight!"
+  say "Stashing all your stuff, hang tight!"
   git add -A
   git stash
-   
-  printf '%s\n' "Testing your code, lets hope it goes right."
+
+  say "Testing your code, lets hope it goes right."
   rake
-  
-  printf '%s\n' "Looks like everything went OK... I think. Returning your code."
+
+  say "Looks like everything went OK... I think. Returning your code."
   git stash pop
 }
 
