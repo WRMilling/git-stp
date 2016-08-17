@@ -6,6 +6,8 @@ git stash, test, pop.
 
 Run `sudo make install` which will install the git-stp file to the /usr/local/bin directory.
 
+If you would rather install it yourself just move the git-stp file into a direcory on your `$PATH` and make sure it is executable. 
+
 ### Configuration
 
 You can create a `.test.cmd` file at the root of your git project tree which specifies the testing command for your project, otherwise `rake` is assumed.
